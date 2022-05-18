@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:jogja/screens/home/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
+/*
       onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         Locale('en', ''),
         Locale('id', ''),
       ],
+*/
       theme: ThemeData.light(),
       home: HomeScreen(),
     );
