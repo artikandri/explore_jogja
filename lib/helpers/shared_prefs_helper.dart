@@ -9,6 +9,8 @@ class SharedPrefsHelper {
 
   Future getData(String key) async {
     SharedPreferences myPrefs = await SharedPreferences.getInstance();
-    return json.decode(myPrefs.getString(key));
+    var result = myPrefs.getString(key);
+    result = result ?? "";
+    return json.decode(result);
   }
 }

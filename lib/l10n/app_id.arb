@@ -1,3 +1,8 @@
 {
-  "appTitle": "Selamat datang di"
+  "appTitle": "Jelajahi Jogja",
+  "greeting": "Selamat datang di",
+  "placeTitle": "Destinasi Populer",
+  "accomodationTitle": "Akomodasi Populer",
+  "tourTitle": "Tur Populer",
+  "eventTitle": "Event Populer"
 }

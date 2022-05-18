@@ -9,3 +9,13 @@ class Review {
     required this.comment,
   });
 }
+
+class PlaceReview extends Review {
+  const PlaceReview({
+    required String objectName,
+    required int rating,
+    required String comment,
+    required int id,
+    int type = 0,
+  }) : super(objectName: objectName, rating: rating, comment: comment);
+}

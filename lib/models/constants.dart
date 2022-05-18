@@ -32,7 +32,8 @@ final headingStyle = TextStyle(
 const defaultDuration = Duration(milliseconds: 250);
 
 final otpInputDecoration = InputDecoration(
-  contentPadding: EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+  contentPadding:
+      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
   border: outlineInputBorder(),
   focusedBorder: outlineInputBorder(),
   enabledBorder: outlineInputBorder(),
@@ -46,3 +47,15 @@ OutlineInputBorder outlineInputBorder() {
 }
 
 const kFontSize = 16;
+
+class LanguageOption {
+  final String value;
+  final String label;
+
+  const LanguageOption({required this.value, required this.label});
+}
+
+const kLanguageOptions = [
+  LanguageOption(value: "en", label: "English"),
+  LanguageOption(value: "id", label: "Indonesia"),
+];

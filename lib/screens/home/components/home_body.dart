@@ -1,14 +1,17 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, avoid_unnecessary_containers, unused_import, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-import 'package:jogja/mock_datas/accomodations.dart';
-import 'package:jogja/screens/home/components/accomodation_card.dart';
-import 'package:jogja/models/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:jogja/models/size_config.dart';
 import 'header.dart';
 import 'section_title.dart';
+import 'accomodation_list.dart';
+import 'tour_list.dart';
+import 'place_list.dart';
+import 'event_list.dart';
+import 'menu_items.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,12 +20,13 @@ class Body extends StatelessWidget {
           children: [
             SizedBox(height: getProportionateScreenHeight(20)),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 15.0),
+              margin:
+                  const EdgeInsets.symmetric(vertical: 2.0, horizontal: 15.0),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Welcome to',
-                  style: TextStyle(
+                  AppLocalizations.of(context)!.greeting,
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Color.fromARGB(255, 12, 0, 0),
                   ),
@@ -31,7 +35,7 @@ class Body extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 15.0),
-              child: Align(
+              child: const Align(
                 alignment: Alignment.topLeft,
                 child: Text(
                   'Yogyakarta',
@@ -43,12 +47,40 @@ class Body extends StatelessWidget {
               ),
             ),
             SizedBox(height: getProportionateScreenHeight(10)),
-            Header(),
+            const Header(),
+            SizedBox(height: getProportionateScreenHeight(30)),
+            MenuItems(),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(20)),
+              child: SectionTitle(
+                title: AppLocalizations.of(context)!.placeTitle,
+                press: () {
+                  // do something
+                  // go to tour page
+                },
+              ),
+            ),
+            PlaceList(),
             SizedBox(height: getProportionateScreenHeight(30)),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(20)),
               child: SectionTitle(
-                title: "Popular Accomodations",
+                title: AppLocalizations.of(context)!.eventTitle,
+                press: () {
+                  // do something
+                  // go to tour page
+                },
+              ),
+            ),
+            EventList(),
+            SizedBox(height: getProportionateScreenHeight(30)),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(20)),
+              child: SectionTitle(
+                title: AppLocalizations.of(context)!.accomodationTitle,
                 press: () {
                   // do something
                   // go to accomodation page
@@ -56,19 +88,21 @@ class Body extends StatelessWidget {
               ),
             ),
             SizedBox(height: getProportionateScreenHeight(10)),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  ...List.generate(
-                    kAccomodations.length,
-                    (index) => AccomodationCard(
-                      accomodation: kAccomodations[index],
-                    ),
-                  ),
-                ],
+            AccomodationList(),
+            SizedBox(height: getProportionateScreenHeight(30)),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(20)),
+              child: SectionTitle(
+                title: AppLocalizations.of(context)!.tourTitle,
+                press: () {
+                  // do something
+                  // go to tour page
+                },
               ),
-            )
+            ),
+            TourList(),
+            SizedBox(height: getProportionateScreenHeight(30)),
           ],
         ),
       ),

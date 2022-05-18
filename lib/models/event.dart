@@ -4,12 +4,15 @@ class Event {
   final String name;
   final String description;
   final Place place;
-  final List<String> images;
+  List<String> images = [];
+  String? startTime;
+  String? endTime;
 
-  const Event({
-    required this.name,
-    required this.description,
-    required this.place,
-    required this.images,
-  });
+  Event(
+      {required this.name,
+      required this.description,
+      required this.place,
+      required this.images,
+      this.startTime,
+      this.endTime});
 }

@@ -1,10 +1,11 @@
 import 'package:jogja/models/location.dart';
 import 'package:jogja/models/accomodation.dart';
 
-const List<Accomodation> kAccomodations = [
+List<Accomodation> kAccomodations = [
   Accomodation(
       name: 'Hotel Santika Premiere Jogja',
-      description: 'Upscale hotel with a spa, an outdoor pool & 2 restaurants, plus a coffee shop & free breakfast.',
+      description:
+          'Upscale hotel with a spa, an outdoor pool & 2 restaurants, plus a coffee shop & free breakfast.',
       location: Location(
         latitude: -7.782497,
         longitude: 110.3697302,
@@ -17,7 +18,8 @@ const List<Accomodation> kAccomodations = [
       price: 200),
   Accomodation(
       name: 'Grand Rohan Jogja',
-      description: 'Simple rooms & airy suites in a relaxed hotel offering dining, a ballroom & an outdoor pool.',
+      description:
+          'Simple rooms & airy suites in a relaxed hotel offering dining, a ballroom & an outdoor pool.',
       location: Location(
         latitude: -7.782497,
         longitude: 110.3697302,
@@ -30,7 +32,8 @@ const List<Accomodation> kAccomodations = [
       price: 100),
   Accomodation(
     name: 'Greenhost Boutique Hotel Prawirotaman',
-    description: 'Modern rooms in a trendy eco-centric hotel with hydroponic farm-to-table dining, a spa & a pool.',
+    description:
+        'Modern rooms in a trendy eco-centric hotel with hydroponic farm-to-table dining, a spa & a pool.',
     location: Location(
       latitude: -7.782497,
       longitude: 110.3697302,

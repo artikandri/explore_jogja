@@ -46,8 +46,10 @@ class AccomodationCard extends StatelessWidget {
                     tag: accomodation.name,
                     child: CachedNetworkImage(
                       imageUrl: accomodation.images[0],
-                      placeholder: (context, url) => new CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => new Icon(Icons.error),
+                      placeholder: (context, url) =>
+                          new CircularProgressIndicator(),
+                      errorWidget: (context, url, error) =>
+                          new Icon(Icons.error),
                     ),
                   ),
                 ),
@@ -62,7 +64,7 @@ class AccomodationCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "\${accomodation.price} zl",
+                    "${accomodation.price} zl",
                     style: TextStyle(
                       fontSize: getProportionateScreenWidth(18),
                       fontWeight: FontWeight.w600,

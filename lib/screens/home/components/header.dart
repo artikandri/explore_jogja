@@ -1,21 +1,47 @@
-// ignore_for_file: use_key_in_widget_constructors, avoid_print, prefer_const_constructors, unused_import
-
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jogja/models/constants.dart';
 import 'package:jogja/models/size_config.dart';
+import 'package:jogja/helpers/shared_prefs_helper.dart';
+import 'package:jogja/providers/app_provider.dart';
+import 'package:provider/provider.dart';
+// import 'package:jogja/components/custom_searchbox.dart';
 
-class Header extends StatelessWidget {
+Future _getLanguage() async {
+  String language = await SharedPrefsHelper().getData("language_code");
+  language = language != "" ? language : 'en';
+  Locale locale = new Locale(language, '');
+
+  return language;
+}
+
+class Header extends StatefulWidget {
   const Header({
     Key? key,
   }) : super(key: key);
 
   @override
+  _HeaderState createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
+  String _selectedLanguage = "en";
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    dynamic dropdownValue = 'English';
+    _getLanguage().then((res) {
+      setState(() {
+        _selectedLanguage = res;
+      });
+    });
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
+      padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -29,44 +55,39 @@ class Header extends StatelessWidget {
                 bottomRight: Radius.circular(10.0),
               ),
             ),
-            // child: TextField(
-            //   onChanged: (value) => print(value),
-            //   decoration: InputDecoration(
-            //     contentPadding: EdgeInsets.symmetric(
-            //         horizontal: getProportionateScreenWidth(20),
-            //         vertical: getProportionateScreenWidth(10)),
-            //     border: InputBorder.none,
-            //     focusedBorder: InputBorder.none,
-            //     enabledBorder: InputBorder.none,
-            //     hintText: "Search hotel",
-            //     icon: FaIcon(FontAwesomeIcons.searchengin),
-            //   ),
-            // ),
           ),
-          DropdownButton<String>(
-            value: dropdownValue,
-            icon: const Icon(Icons.arrow_downward),
-            elevation: 16,
-            style: const TextStyle(color: Colors.deepPurple),
-            underline: Container(
-              height: 2,
-              color: Colors.deepPurpleAccent,
-            ),
-            onChanged: (String? newValue) {
-              // setState(() {
-              dropdownValue = newValue!;
-              // });
+          // CustomSearchBox(
+          //     readOnly: false,
+          //     autoFocus: true,
+          //     onChanged: (text) {
+          //       setState(() {
+          //         if (text.isNotEmpty) {
+          //           searchResult = tripList
+          //               .where((element) => element.name
+          //                   .toLowerCase()
+          //                   .contains(text.toLowerCase()))
+          //               .toList();
+          //         } else {
+          //           searchResult = [];
+          //         }
+          //       }),
+          DropdownButton(
+            hint: Text('Language'),
+            value: _selectedLanguage,
+            onChanged: (languageOption) {
+              setState(() {
+                _selectedLanguage = languageOption.toString();
+              });
+              Provider.of<LanguageProvider>(context, listen: false)
+                  .setLanguageCode(languageOption.toString());
             },
-            items: <String>[
-              'English',
-              'Indonesia'
-            ].map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
+            items: kLanguageOptions.map((LanguageOption languageOption) {
+              return DropdownMenuItem(
+                child: Text(languageOption.label),
+                value: languageOption.value,
               );
             }).toList(),
-          )
+          ),
         ],
       ),
     );

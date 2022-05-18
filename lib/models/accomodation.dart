@@ -5,13 +5,13 @@ class Accomodation {
   final String description;
   final Location location;
   final List<String> images;
-  final double price;
+  double? price;
 
-  const Accomodation({
+  Accomodation({
     required this.name,
     required this.description,
     required this.location,
     required this.images,
-    required this.price,
+    this.price,
   });
 }
