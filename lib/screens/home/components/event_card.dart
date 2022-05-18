@@ -6,6 +6,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:jogja/models/constants.dart';
 import 'package:jogja/models/event.dart';
 import 'package:jogja/models/size_config.dart';
+import 'package:jogja/screens/detail/detail_screen.dart';
 
 class EventCard extends StatelessWidget {
   const EventCard({
@@ -25,11 +26,14 @@ class EventCard extends StatelessWidget {
       child: SizedBox(
         width: getProportionateScreenWidth(width),
         child: GestureDetector(
-          // onTap: () => Navigator.pushNamed(
-          //   context,
-          // HotelDetail.routeName,
-          // arguments: ProductDetailsArguments(data: data),
-          // ),
+          onTap: () => Navigator.pushNamed(
+            context,
+            DetailScreen.routeName,
+            arguments: {
+              "data": event,
+              "type": 1,
+            },
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

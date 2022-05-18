@@ -1,9 +1,6 @@
-// ignore_for_file: avoid_web_libraries_in_flutter, prefer_const_constructors, unused_import
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:jogja/screens/accomodations/accomodation_screen.dart';
+import 'package:jogja/screens/detail/detail_screen.dart';
 import 'package:jogja/models/constants.dart';
 import 'package:jogja/models/accomodation.dart';
 import 'package:jogja/models/size_config.dart';
@@ -26,11 +23,8 @@ class AccomodationCard extends StatelessWidget {
       child: SizedBox(
         width: getProportionateScreenWidth(width),
         child: GestureDetector(
-          // onTap: () => Navigator.pushNamed(
-          //   context,
-          // HotelDetail.routeName,
-          // arguments: ProductDetailsArguments(data: data),
-          // ),
+          onTap: () => Navigator.pushNamed(context, DetailScreen.routeName,
+              arguments: {"data": accomodation, "type": 2}),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

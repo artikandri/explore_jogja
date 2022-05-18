@@ -26,11 +26,8 @@ class TourCard extends StatelessWidget {
       child: SizedBox(
         width: getProportionateScreenWidth(width),
         child: GestureDetector(
-          onTap: () => Navigator.pushNamed(
-            context,
-            DetailScreen.routeName,
-            arguments: tour,
-          ),
+          onTap: () => Navigator.pushNamed(context, DetailScreen.routeName,
+              arguments: {"data": tour, "type": 3}),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

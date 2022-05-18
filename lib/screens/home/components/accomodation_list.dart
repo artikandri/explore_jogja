@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/mock_datas/accomodations.dart';
 import 'package:jogja/screens/home/components/accomodation_card.dart';
 
 class AccomodationList extends StatelessWidget {
   int _displayLimit = 3;
+  List accomodations;
+
+  AccomodationList({Key? key, required this.accomodations}) : super(key: key);
 
   @override
   Widget build(BuildContext buildContext) {
@@ -14,7 +16,7 @@ class AccomodationList extends StatelessWidget {
           ...List.generate(
             _displayLimit,
             (index) => AccomodationCard(
-              accomodation: kAccomodations[index],
+              accomodation: accomodations[index],
             ),
           ),
         ],

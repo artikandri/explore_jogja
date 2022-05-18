@@ -1,51 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/models/size_config.dart';
-import 'package:jogja/components/custom_map.dart';
-import 'package:jogja/components/custom_youtube_view.dart';
-import 'package:jogja/screens/detail/components/description.dart';
-import 'package:jogja/screens/detail/components/top_container.dart';
-import 'package:jogja/screens/detail/components/images_list.dart';
+import 'package:jogja/screens/detail/components/place_detail_body.dart';
+import 'package:jogja/screens/detail/components/event_detail_body.dart';
+import 'package:jogja/screens/detail/components/accomodation_detail_body.dart';
+import 'package:jogja/screens/detail/components/tour_detail_body.dart';
 
 class DetailBody extends StatelessWidget {
-  dynamic data;
+  final int type;
+  final dynamic data;
 
-  DetailBody({Key? key, required this.data}) : super(key: key);
+  const DetailBody({Key? key, required this.type, required this.data})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        data.images.length > 0 ? ImagesList(images: data.images) : Container(),
-        TopRoundedContainer(
-          color: Colors.white,
-          child: Column(
-            children: [
-              Description(
-                name: data.name,
-                description: data.description,
-              ),
-              Container(
-                  width: 300,
-                  height: 100,
-                  child: CustomYoutubeView(url: data.video)),
-              Container(
-                  width: 300,
-                  height: 100,
-                  child: CustomMap(locations: [data.location])),
-              TopRoundedContainer(
-                color: Colors.white,
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: SizeConfig.screenWidth * 0.15,
-                    right: SizeConfig.screenWidth * 0.15,
-                    bottom: getProportionateScreenWidth(40),
-                    top: getProportionateScreenWidth(15),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
+    Widget component = Container();
+    switch (type) {
+      case 0:
+        component = PlaceDetailBody(data: data);
+        break;
+      case 1:
+        component = EventDetailBody(data: data);
+        break;
+      case 2:
+        component = AccomodationDetailBody(data: data);
+        break;
+      case 3:
+        component = TourDetailBody(data: data);
+        break;
+      default:
+        component = Container();
+        break;
+    }
+
+    return component;
   }
 }

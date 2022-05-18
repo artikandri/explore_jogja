@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/mock_datas/tours.dart';
 import 'package:jogja/screens/home/components/tour_card.dart';
 
 class TourList extends StatelessWidget {
   int _displayLimit = 3;
+  List tours = [];
+
+  TourList({Key? key, required this.tours}) : super(key: key);
 
   @override
   Widget build(BuildContext buildContext) {
@@ -14,7 +16,7 @@ class TourList extends StatelessWidget {
           ...List.generate(
             _displayLimit,
             (index) => TourCard(
-              tour: kTours[index],
+              tour: tours[index],
             ),
           ),
         ],

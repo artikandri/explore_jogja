@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jogja/mock_datas/index.dart';
 import 'package:jogja/models/size_config.dart';
 import 'header.dart';
 import 'section_title.dart';
@@ -61,7 +62,7 @@ class Body extends StatelessWidget {
                 },
               ),
             ),
-            PlaceList(),
+            PlaceList(places: kPlaces),
             SizedBox(height: getProportionateScreenHeight(30)),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -74,7 +75,7 @@ class Body extends StatelessWidget {
                 },
               ),
             ),
-            EventList(),
+            EventList(events: kEvents),
             SizedBox(height: getProportionateScreenHeight(30)),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -88,7 +89,7 @@ class Body extends StatelessWidget {
               ),
             ),
             SizedBox(height: getProportionateScreenHeight(10)),
-            AccomodationList(),
+            AccomodationList(accomodations: kAccomodations),
             SizedBox(height: getProportionateScreenHeight(30)),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -101,7 +102,7 @@ class Body extends StatelessWidget {
                 },
               ),
             ),
-            TourList(),
+            TourList(tours: kTours),
             SizedBox(height: getProportionateScreenHeight(30)),
           ],
         ),

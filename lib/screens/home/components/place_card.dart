@@ -29,7 +29,10 @@ class PlaceCard extends StatelessWidget {
           onTap: () => Navigator.pushNamed(
             context,
             DetailScreen.routeName,
-            arguments: place,
+            arguments: {
+              "data": place,
+              "type": 0,
+            },
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

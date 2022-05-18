@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/mock_datas/events.dart';
 import 'package:jogja/screens/home/components/event_card.dart';
 
 class EventList extends StatelessWidget {
   int _displayLimit = 3;
+  List events = [];
+
+  EventList({Key? key, required this.events}) : super(key: key);
 
   @override
   Widget build(BuildContext buildContext) {
@@ -14,7 +16,7 @@ class EventList extends StatelessWidget {
           ...List.generate(
             _displayLimit,
             (index) => EventCard(
-              event: kEvents[index],
+              event: events[index],
             ),
           ),
         ],

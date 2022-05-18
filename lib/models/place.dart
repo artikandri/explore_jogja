@@ -1,7 +1,7 @@
 import 'package:jogja/models/location.dart';
 
 class Place {
-  final int id;
+  int? id;
   final String name;
   final String description;
   final Location location;
@@ -11,7 +11,7 @@ class Place {
   List? reviews = [];
 
   Place({
-    required this.id,
+    this.id,
     required this.name,
     required this.description,
     required this.location,

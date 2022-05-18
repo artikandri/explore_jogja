@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/mock_datas/places.dart';
 import 'package:jogja/screens/home/components/place_card.dart';
 
 class PlaceList extends StatelessWidget {
   int _displayLimit = 3;
+  List places = [];
+
+  PlaceList({Key? key, required this.places}) : super(key: key);
 
   @override
   Widget build(BuildContext buildContext) {
@@ -14,7 +16,7 @@ class PlaceList extends StatelessWidget {
           ...List.generate(
             _displayLimit,
             (index) => PlaceCard(
-              place: kPlaces[index],
+              place: places[index],
             ),
           ),
         ],
