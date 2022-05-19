@@ -1,13 +1,17 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:jogja/mock_datas/index.dart';
 import 'package:jogja/models/size_config.dart';
+import 'package:jogja/screens/list/accomodation_list_screen.dart';
+import 'package:jogja/screens/list/place_list_screen.dart';
+import 'package:jogja/screens/list/event_list_screen.dart';
+import 'package:jogja/screens/list/tour_list_screen.dart';
+
 import 'header.dart';
 import 'section_title.dart';
-import 'accomodation_list.dart';
-import 'tour_list.dart';
-import 'place_list.dart';
-import 'event_list.dart';
+import 'item_list.dart';
 import 'menu_items.dart';
 
 class Body extends StatelessWidget {
@@ -57,12 +61,11 @@ class Body extends StatelessWidget {
               child: SectionTitle(
                 title: AppLocalizations.of(context)!.placeTitle,
                 press: () {
-                  // do something
-                  // go to tour page
+                  Navigator.pushNamed(context, PlaceListScreen.routeName);
                 },
               ),
             ),
-            PlaceList(places: kPlaces),
+            ItemList(items: kPlaces, limit: 3, type: 0),
             SizedBox(height: getProportionateScreenHeight(30)),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -70,12 +73,11 @@ class Body extends StatelessWidget {
               child: SectionTitle(
                 title: AppLocalizations.of(context)!.eventTitle,
                 press: () {
-                  // do something
-                  // go to tour page
+                  Navigator.pushNamed(context, EventListScreen.routeName);
                 },
               ),
             ),
-            EventList(events: kEvents),
+            ItemList(items: kEvents, limit: 3, type: 1),
             SizedBox(height: getProportionateScreenHeight(30)),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -83,13 +85,13 @@ class Body extends StatelessWidget {
               child: SectionTitle(
                 title: AppLocalizations.of(context)!.accomodationTitle,
                 press: () {
-                  // do something
-                  // go to accomodation page
+                  Navigator.pushNamed(
+                      context, AccomodationListScreen.routeName);
                 },
               ),
             ),
             SizedBox(height: getProportionateScreenHeight(10)),
-            AccomodationList(accomodations: kAccomodations),
+            ItemList(items: kAccomodations, limit: 3, type: 2),
             SizedBox(height: getProportionateScreenHeight(30)),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -97,12 +99,11 @@ class Body extends StatelessWidget {
               child: SectionTitle(
                 title: AppLocalizations.of(context)!.tourTitle,
                 press: () {
-                  // do something
-                  // go to tour page
+                  Navigator.pushNamed(context, TourListScreen.routeName);
                 },
               ),
             ),
-            TourList(tours: kTours),
+            ItemList(items: kTours, limit: 3, type: 3),
             SizedBox(height: getProportionateScreenHeight(30)),
           ],
         ),

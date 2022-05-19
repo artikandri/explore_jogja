@@ -4,7 +4,6 @@ import 'package:jogja/models/size_config.dart';
 import 'package:jogja/helpers/shared_prefs_helper.dart';
 import 'package:jogja/providers/app_provider.dart';
 import 'package:provider/provider.dart';
-// import 'package:jogja/components/custom_searchbox.dart';
 
 Future _getLanguage() async {
   String language = await SharedPrefsHelper().getData("language_code");
@@ -56,21 +55,6 @@ class _HeaderState extends State<Header> {
               ),
             ),
           ),
-          // CustomSearchBox(
-          //     readOnly: false,
-          //     autoFocus: true,
-          //     onChanged: (text) {
-          //       setState(() {
-          //         if (text.isNotEmpty) {
-          //           searchResult = tripList
-          //               .where((element) => element.name
-          //                   .toLowerCase()
-          //                   .contains(text.toLowerCase()))
-          //               .toList();
-          //         } else {
-          //           searchResult = [];
-          //         }
-          //       }),
           DropdownButton(
             hint: Text('Language'),
             value: _selectedLanguage,
