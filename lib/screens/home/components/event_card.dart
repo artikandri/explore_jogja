@@ -1,7 +1,4 @@
-// ignore_for_file: avoid_web_libraries_in_flutter, prefer_const_constructors, unused_import
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:jogja/models/constants.dart';
 import 'package:jogja/models/event.dart';

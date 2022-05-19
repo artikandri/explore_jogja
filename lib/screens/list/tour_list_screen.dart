@@ -6,6 +6,8 @@ import 'package:jogja/models/size_config.dart';
 class TourListScreen extends StatelessWidget {
   static String routeName = "/tours";
 
+  const TourListScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

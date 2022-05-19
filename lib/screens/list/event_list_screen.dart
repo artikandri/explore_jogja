@@ -6,6 +6,8 @@ import 'package:jogja/models/size_config.dart';
 class EventListScreen extends StatelessWidget {
   static String routeName = "/events";
 
+  const EventListScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
