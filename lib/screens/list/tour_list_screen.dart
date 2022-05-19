@@ -10,7 +10,7 @@ class TourListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      body: Body(title: "tours", items: kTours, type: 2),
+      body: Body(title: "Tours", items: kTours, type: 3),
     );
   }
 }

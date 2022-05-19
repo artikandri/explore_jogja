@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jogja/models/size_config.dart';
 import 'package:jogja/components/custom_searchbox.dart';
-import 'package:jogja/components/custom_back_button.dart';
+import 'package:jogja/components/custom_app_bar.dart';
 
 import 'item_list.dart';
 
@@ -37,7 +37,7 @@ class _BodyState extends State<Body> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            CustomBackButton(),
+            CustomAppBar(),
             SizedBox(height: getProportionateScreenHeight(20)),
             Container(
               margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 15.0),
