@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:jogja/screens/home/home_screen.dart';
-import 'package:jogja/providers/app_provider.dart';
+import 'package:jogja/providers/language_provider.dart';
 import 'package:jogja/providers/review_provider.dart';
 import 'package:jogja/routes.dart';
 

@@ -9,25 +9,32 @@ class ReviewProvider extends ChangeNotifier {
     getReviews();
   }
 
-  int getRatingAverage() {
-    if (reviews.isEmpty) return 0;
-    double sum = 0;
-    for (var review in reviews) {
-      sum += review?.rating;
-    }
-    return sum ~/ reviews.length;
-  }
-
-  void getReviews() {
-    SharedPrefsHelper().getData('reviews').then((value) {
-      reviews = value;
-    });
+  void setReviews(value) {
+    reviews = value;
+    // SharedPrefsHelper().setData('reviews', value);
     notifyListeners();
   }
 
-  void addReview(Review review) {
+  double getRatingAverage(List allReviews) {
+    if (allReviews.isEmpty) return 0;
+    double sum = 0;
+    for (var review in allReviews) {
+      sum += review?.rating;
+    }
+    return sum / allReviews.length;
+  }
+
+  List getReviews() {
+    // SharedPrefsHelper().getData('reviews').then((value) {
+    //   reviews = value;
+    // });
+    notifyListeners();
+    return reviews;
+  }
+
+  void addReview(dynamic review) {
     reviews.add(review);
-    SharedPrefsHelper().setData('reviews', reviews);
+    setReviews(reviews);
     notifyListeners();
   }
 }

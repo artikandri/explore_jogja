@@ -1,6 +1,6 @@
 class Review {
   final String objectName;
-  final int rating;
+  final double rating;
   final String comment;
 
   const Review({
@@ -13,9 +13,19 @@ class Review {
 class PlaceReview extends Review {
   const PlaceReview({
     required String objectName,
-    required int rating,
+    required double rating,
     required String comment,
     required int id,
     int type = 0,
+  }) : super(objectName: objectName, rating: rating, comment: comment);
+}
+
+class AccomodationReview extends Review {
+  const AccomodationReview({
+    required String objectName,
+    required double rating,
+    required String comment,
+    required int id,
+    int type = 2,
   }) : super(objectName: objectName, rating: rating, comment: comment);
 }

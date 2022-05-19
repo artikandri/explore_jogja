@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:jogja/models/constants.dart';
+import 'package:provider/provider.dart';
+import 'package:jogja/providers/review_provider.dart';
 import 'package:jogja/models/review.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class AddReviewScreen extends StatefulWidget {
-  const AddReviewScreen({Key? key}) : super(key: key);
+  final dynamic data;
+  final int type;
+  const AddReviewScreen({Key? key, required this.data, required this.type})
+      : super(key: key);
 
   @override
   _AddReviewScreenState createState() => _AddReviewScreenState();
@@ -23,21 +27,27 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
     super.initState();
   }
 
-  void _saveData() {}
+  void _saveData(
+      Map<String, dynamic> value, BuildContext context, dynamic data) {
+    dynamic review = PlaceReview(
+        objectName: data.name,
+        rating: _ratingValue,
+        comment: value["description"],
+        id: data.id);
+
+    Provider.of<ReviewProvider>(context, listen: false).addReview(review);
+    Navigator.of(context).pop();
+  }
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Scaffold(
-        backgroundColor: kGray,
-        body: SafeArea(
-            child: Column(children: <Widget>[
-          const Text(
-            'Add review',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-          ),
+    return Container(
+        height: 600,
+        width: 200,
+        child: Column(children: <Widget>[
           Expanded(
-              child: SingleChildScrollView(
+              child: Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Center(
               child: Column(
@@ -89,15 +99,16 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
           )),
           SizedBox(
             height: 80,
-            width: width,
+            width: 100,
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 InkWell(
                   onTap: () {
                     _formKey.currentState!.save();
                     if (_formKey.currentState!.validate()) {
-                      _saveData(_formKey!.currentState!.value, context);
+                      _saveData(
+                          _formKey.currentState!.value, context, widget.data);
                     } else {
                       var snackBar =
                           SnackBar(content: Text('Validation failed'));
@@ -106,7 +117,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                   },
                   child: Container(
                     child: const Text(
-                      'Create Event',
+                      'Add review',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
@@ -114,7 +125,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                     ),
                     alignment: Alignment.center,
                     margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
-                    width: width - 40,
+                    width: 100,
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(30),
@@ -124,6 +135,6 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
               ],
             ),
           ),
-        ])));
+        ]));
   }
 }

@@ -5,22 +5,10 @@ class LanguageProvider extends ChangeNotifier {
   LanguageProvider() {
     checkLanguageCode();
   }
-  String language_code = "en";
-  Key key = UniqueKey();
-  GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
-  void setKey(value) {
-    key = value;
-    notifyListeners();
-  }
-
-  void setNavigatorKey(value) {
-    navigatorKey = value;
-    notifyListeners();
-  }
+  String languageCode = "en";
 
   void setLanguageCode(value) {
-    language_code = value;
+    languageCode = value;
     SharedPreferences.getInstance().then((prefs) {
       prefs.setString("language_code", value);
     });
@@ -28,7 +16,7 @@ class LanguageProvider extends ChangeNotifier {
   }
 
   String getLanguageCode() {
-    return language_code;
+    return languageCode;
   }
 
   Future<String?> checkLanguageCode() async {

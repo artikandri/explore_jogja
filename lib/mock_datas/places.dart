@@ -40,6 +40,7 @@ List<Place> kPlaces = [
         const PlaceReview(
           objectName: "Malioboro",
           rating: 2,
+          type: 0,
           comment: "Nice",
           id: 1,
         )

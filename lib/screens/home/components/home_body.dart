@@ -6,11 +6,10 @@ import 'package:jogja/screens/list/accomodation_list_screen.dart';
 import 'package:jogja/screens/list/place_list_screen.dart';
 import 'package:jogja/screens/list/event_list_screen.dart';
 import 'package:jogja/screens/list/tour_list_screen.dart';
-
-import 'header.dart';
-import 'section_title.dart';
-import 'item_list.dart';
-import 'menu_items.dart';
+import 'package:jogja/screens/home/components/header.dart';
+import 'package:jogja/screens/home/components/section_title.dart';
+import 'package:jogja/screens/home/components/item_list.dart';
+import 'package:jogja/screens/home/components/menu_items.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
