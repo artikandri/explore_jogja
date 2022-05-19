@@ -23,6 +23,8 @@ List menuItems = [
 ];
 
 class MenuItems extends StatelessWidget {
+  const MenuItems({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext buildContext) {
     return SingleChildScrollView(

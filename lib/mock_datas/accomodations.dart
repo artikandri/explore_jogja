@@ -9,6 +9,7 @@ List<Accomodation> kAccomodations = [
       location: Location(
         latitude: -7.782497,
         longitude: 110.3697302,
+        address: "Jalan Kemakmuran",
         label: 'Hotel Santika Premiere Jogja',
       ),
       images: [
@@ -23,6 +24,7 @@ List<Accomodation> kAccomodations = [
       location: Location(
         latitude: -7.782497,
         longitude: 110.3697302,
+        address: "Jalan Kemakmuran",
         label: 'Grand Rohan Jogja',
       ),
       images: [
@@ -37,6 +39,7 @@ List<Accomodation> kAccomodations = [
     location: Location(
       latitude: -7.782497,
       longitude: 110.3697302,
+      address: "Jalan Tumpah tumpah",
       label: 'Greenhost Boutique Hotel Prawirotaman',
     ),
     images: [

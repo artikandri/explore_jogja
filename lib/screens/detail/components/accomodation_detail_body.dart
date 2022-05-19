@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jogja/models/size_config.dart';
 import 'package:jogja/components/custom_map.dart';
-import 'package:jogja/components/custom_youtube_view.dart';
 import 'package:jogja/screens/detail/components/description.dart';
 import 'package:jogja/screens/detail/components/top_container.dart';
 import 'package:jogja/screens/detail/components/images_list.dart';
@@ -28,6 +27,7 @@ class AccomodationDetailBody extends StatelessWidget {
                   width: 300,
                   height: 100,
                   child: CustomMap(locations: [data.location])),
+              Text(data.location.address),
               TopRoundedContainer(
                 color: Colors.white,
                 child: Padding(

@@ -4,5 +4,10 @@
   "placeTitle": "Destinasi Populer",
   "accomodationTitle": "Akomodasi Populer",
   "tourTitle": "Tur Populer",
-  "eventTitle": "Event Populer"
+  "eventTitle": "Event Populer",
+  "seeMore": "Lihat selengkapnya",
+  "places": "Destinasi",
+  "accomodations": "Akomodasi",
+  "tours": "Tur",
+  "events": "Event"
 }

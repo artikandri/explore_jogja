@@ -69,6 +69,7 @@ List<Place> kPlaces = [
     location: Location(
       latitude: -7.100821020718915,
       longitude: 110.3164988721451,
+      address: "Jalan Titik Nol",
       label: 'Fort Vredeburg Museum',
     ),
     images: [
@@ -85,6 +86,7 @@ List<Place> kPlaces = [
     location: Location(
       latitude: -7.782984,
       longitude: 110.367035,
+      address: "Jalan Tugu",
       label: 'Tugu',
     ),
     images: [
