@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:jogja/models/constants.dart';
 import 'package:jogja/models/tour.dart';
-import 'package:jogja/models/size_config.dart';
+import 'package:jogja/stylings/index.dart';
 import 'package:jogja/screens/detail/detail_screen.dart';
 
 class TourCard extends StatelessWidget {
@@ -33,7 +32,7 @@ class TourCard extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(getProportionateScreenWidth(20)),
                   decoration: BoxDecoration(
-                    color: kSecondaryColor.withOpacity(0.1),
+                    color: AppColors.kSecondaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Hero(

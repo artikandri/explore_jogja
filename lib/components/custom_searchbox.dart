@@ -1,4 +1,4 @@
-import 'package:jogja/models/constants.dart';
+import 'package:jogja/stylings/index.dart';
 import 'package:flutter/material.dart';
 
 class CustomSearchBox extends StatefulWidget {
@@ -25,7 +25,7 @@ class _CustomSearchBoxState extends State<CustomSearchBox> {
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: kLightGray,
+        color: AppColors.kLightGray,
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
@@ -42,7 +42,7 @@ class _CustomSearchBoxState extends State<CustomSearchBox> {
           hintText: "What you want to do?",
           prefixIcon: Icon(
             Icons.search,
-            color: kGray,
+            color: AppColors.kGray,
           ),
         ),
       ),

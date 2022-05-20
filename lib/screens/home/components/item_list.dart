@@ -16,6 +16,8 @@ class ItemList extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ...List.generate(
             limit == 0 ? items.length : limit,

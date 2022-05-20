@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/models/size_config.dart';
+import 'package:jogja/stylings/index.dart';
 import 'package:jogja/components/custom_searchbox.dart';
 import 'package:jogja/components/custom_app_bar.dart';
 

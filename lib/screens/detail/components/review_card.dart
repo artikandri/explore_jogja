@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:jogja/models/size_config.dart';
+import 'package:jogja/stylings/index.dart';
 
 class ReviewCard extends StatelessWidget {
   const ReviewCard({

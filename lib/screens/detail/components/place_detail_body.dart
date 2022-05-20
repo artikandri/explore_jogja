@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/models/size_config.dart';
+import 'package:jogja/stylings/index.dart';
 import 'package:jogja/components/custom_map.dart';
 import 'package:jogja/components/custom_youtube_view.dart';
 import 'package:jogja/screens/detail/components/description.dart';

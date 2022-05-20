@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:jogja/models/constants.dart';
+import 'package:jogja/stylings/fonts.dart';
+import 'package:jogja/stylings/index.dart';
 import 'package:jogja/models/place.dart';
-import 'package:jogja/models/size_config.dart';
 import 'package:jogja/screens/detail/detail_screen.dart';
 
 class PlaceCard extends StatelessWidget {
@@ -37,10 +37,10 @@ class PlaceCard extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 1.02,
                 child: Container(
-                  padding: EdgeInsets.all(getProportionateScreenWidth(20)),
+                  height: getProportionateScreenHeight(100),
                   decoration: BoxDecoration(
-                    color: kSecondaryColor.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(25),
+                    color: AppColors.kSecondaryColor.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Hero(
                     tag: place.name,
@@ -54,10 +54,12 @@ class PlaceCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               Text(
                 place.name,
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: getProportionateScreenWidth(12)),
                 maxLines: 2,
               ),
             ],

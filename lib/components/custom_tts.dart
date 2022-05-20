@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:jogja/models/constants.dart';
-import 'package:jogja/models/size_config.dart';
+import 'package:jogja/stylings/index.dart';
 import 'package:jogja/helpers/shared_prefs_helper.dart';
 
 class CustomTts extends StatefulWidget {
@@ -38,7 +37,7 @@ class _CustomTtsState extends State<CustomTts> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(60),
           ),
-          primary: kPrimaryColor,
+          primary: AppColors.kPrimaryColor,
           backgroundColor: Colors.white,
           padding: EdgeInsets.zero,
         ),

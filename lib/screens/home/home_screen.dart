@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jogja/screens/home/components/home_body.dart';
-import 'package:jogja/models/size_config.dart';
+import 'package:jogja/stylings/index.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";

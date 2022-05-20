@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:jogja/models/size_config.dart';
-import 'package:jogja/models/constants.dart';
+import 'package:jogja/stylings/index.dart';
 
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
@@ -18,18 +17,21 @@ class SectionTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(18),
-            color: Colors.black,
-          ),
+        Align(
+          alignment: Alignment.topLeft,
+          child: Text(title,
+              style: TextStyle(
+                fontSize: AppFonts.bodyFontSize,
+                color: Colors.black,
+              )),
         ),
         GestureDetector(
           onTap: press,
           child: Text(
             AppLocalizations.of(context)!.seeMore,
-            style: TextStyle(color: kDarkGray),
+            style: TextStyle(
+                color: AppColors.kDarkGray,
+                fontSize: AppFonts.bodyFontSize * .5),
           ),
         ),
       ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jogja/models/constants.dart';
-import 'package:jogja/models/size_config.dart';
+import 'package:jogja/stylings/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class ImagesList extends StatefulWidget {
@@ -55,7 +55,7 @@ class _ImagesListState extends State<ImagesList> {
         });
       },
       child: AnimatedContainer(
-        duration: defaultDuration,
+        duration: kAnimationDuration,
         margin: EdgeInsets.only(right: 15),
         padding: EdgeInsets.all(8),
         height: getProportionateScreenWidth(48),
@@ -64,7 +64,8 @@ class _ImagesListState extends State<ImagesList> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-              color: kPrimaryColor.withOpacity(selectedImage == index ? 1 : 0)),
+              color: AppColors.kPrimaryColor
+                  .withOpacity(selectedImage == index ? 1 : 0)),
         ),
         child: CachedNetworkImage(
           imageUrl: widget.images[index],

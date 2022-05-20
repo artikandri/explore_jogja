@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jogja/stylings/index.dart';
 
 class MenuItem {
   IconData iconData;
@@ -27,33 +28,43 @@ class MenuItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext buildContext) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          ...List.generate(
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        ...List.generate(
             menuItems.length,
             (index) => InkWell(
-                onTap: () {
-                  Navigator.pushNamed(buildContext, menuItems[index].routeName);
-                },
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      menuItems[index].iconData,
-                      color: Colors.black,
-                      size: 40,
-                    ),
-                    Text(
-                      menuItems[index].label,
-                    ),
-                  ],
-                )),
-          )
-        ],
-      ),
+                  onTap: () {
+                    Navigator.pushNamed(
+                        buildContext, menuItems[index].routeName);
+                  },
+                  child: Container(
+                      width: getProportionateScreenWidth(80),
+                      height: getProportionateScreenWidth(70),
+                      padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+                      decoration: BoxDecoration(
+                        color: AppColors.kSecondaryColor.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            menuItems[index].iconData,
+                            color: AppColors.kDarkGray,
+                            size: getProportionateScreenWidth(25),
+                          ),
+                          Text(
+                            menuItems[index].label,
+                            style: TextStyle(
+                                fontSize: getProportionateScreenWidth(8)),
+                          ),
+                        ],
+                      )),
+                ))
+      ],
     );
   }
 }
