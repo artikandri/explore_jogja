@@ -11,21 +11,27 @@ class Review {
 }
 
 class PlaceReview extends Review {
+  final int id;
+  final int type;
+
   const PlaceReview({
     required String objectName,
     required double rating,
     required String comment,
-    required int id,
-    int type = 0,
+    required this.id,
+    required this.type,
   }) : super(objectName: objectName, rating: rating, comment: comment);
 }
 
 class AccomodationReview extends Review {
+  final int id;
+  final int type;
+
   const AccomodationReview({
     required String objectName,
     required double rating,
     required String comment,
-    required int id,
-    int type = 2,
+    required this.id,
+    required this.type,
   }) : super(objectName: objectName, rating: rating, comment: comment);
 }

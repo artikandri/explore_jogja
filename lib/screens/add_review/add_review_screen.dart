@@ -27,13 +27,23 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
     super.initState();
   }
 
-  void _saveData(
-      Map<String, dynamic> value, BuildContext context, dynamic data) {
+  void _saveData(Map<String, dynamic> value, BuildContext context, dynamic data,
+      int type) {
     dynamic review = PlaceReview(
         objectName: data.name,
         rating: _ratingValue,
-        comment: value["description"],
+        type: 0,
+        comment: value["description"] ?? "",
         id: data.id);
+
+    if (type == 2) {
+      review = AccomodationReview(
+          objectName: data.name,
+          rating: _ratingValue,
+          type: 2,
+          comment: value["description"] ?? "",
+          id: data.id);
+    }
 
     Provider.of<ReviewProvider>(context, listen: false).addReview(review);
     Navigator.of(context).pop();
@@ -43,8 +53,8 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Container(
-        height: 600,
-        width: 200,
+        height: 300,
+        width: 600,
         child: Column(children: <Widget>[
           Expanded(
               child: Container(
@@ -107,8 +117,8 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                   onTap: () {
                     _formKey.currentState!.save();
                     if (_formKey.currentState!.validate()) {
-                      _saveData(
-                          _formKey.currentState!.value, context, widget.data);
+                      _saveData(_formKey.currentState!.value, context,
+                          widget.data, widget.type);
                     } else {
                       var snackBar =
                           SnackBar(content: Text('Validation failed'));

@@ -32,6 +32,13 @@ class ReviewProvider extends ChangeNotifier {
     return reviews;
   }
 
+  List getReviewsWithType(int type) {
+    notifyListeners();
+    return reviews.where((element) {
+      return element.type == type;
+    }).toList();
+  }
+
   void addReview(dynamic review) {
     reviews.add(review);
     setReviews(reviews);
