@@ -21,7 +21,7 @@ class SectionTitle extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: Text(title,
               style: TextStyle(
-                fontSize: AppFonts.bodyFontSize,
+                fontSize: getProportionateScreenWidth(16),
                 color: Colors.black,
               )),
         ),
@@ -31,7 +31,7 @@ class SectionTitle extends StatelessWidget {
             AppLocalizations.of(context)!.seeMore,
             style: TextStyle(
                 color: AppColors.kDarkGray,
-                fontSize: AppFonts.bodyFontSize * .5),
+                fontSize: getProportionateScreenWidth(12)),
           ),
         ),
       ],

@@ -56,6 +56,7 @@ class MenuItems extends StatelessWidget {
                             color: AppColors.kDarkGray,
                             size: getProportionateScreenWidth(25),
                           ),
+                          SizedBox(height: getProportionateScreenWidth(5)),
                           Text(
                             menuItems[index].label,
                             style: TextStyle(

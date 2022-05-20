@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:jogja/components/custom_network_image.dart';
 import 'package:jogja/models/place.dart';
 import 'package:jogja/stylings/index.dart';
 import 'package:jogja/screens/detail/detail_screen.dart';
@@ -43,21 +43,16 @@ class PlaceCard extends StatelessWidget {
                   ),
                   child: Hero(
                     tag: place.name,
-                    child: CachedNetworkImage(
-                      imageUrl: place.images[0],
-                      placeholder: (context, url) =>
-                          new CircularProgressIndicator(),
-                      errorWidget: (context, url, error) =>
-                          new Icon(Icons.error),
-                    ),
+                    child: CustomNetworkImage(url: place.images[0]),
                   ),
                 ),
               ),
               const SizedBox(height: 10),
               Text(
                 place.name,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(color: Colors.black),
-                maxLines: 2,
+                maxLines: 1,
               ),
             ],
           ),

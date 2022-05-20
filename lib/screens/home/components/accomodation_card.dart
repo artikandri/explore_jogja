@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:jogja/screens/detail/detail_screen.dart';
-import 'package:jogja/models/accomodation.dart';
 import 'package:jogja/stylings/index.dart';
+import 'package:jogja/components/custom_network_image.dart';
+import 'package:jogja/models/accomodation.dart';
+import 'package:jogja/screens/detail/detail_screen.dart';
 
 class AccomodationCard extends StatelessWidget {
   const AccomodationCard({
@@ -17,57 +17,50 @@ class AccomodationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
-      child: SizedBox(
-        width: getProportionateScreenWidth(width),
-        child: GestureDetector(
-          onTap: () => Navigator.pushNamed(context, DetailScreen.routeName,
-              arguments: {"data": accomodation, "type": 2}),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AspectRatio(
-                aspectRatio: 1.02,
-                child: Container(
-                  padding: EdgeInsets.all(getProportionateScreenWidth(20)),
-                  decoration: BoxDecoration(
-                    color: AppColors.kSecondaryColor.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Hero(
-                    tag: accomodation.name,
-                    child: CachedNetworkImage(
-                      imageUrl: accomodation.images[0],
-                      placeholder: (context, url) =>
-                          new CircularProgressIndicator(),
-                      errorWidget: (context, url, error) =>
-                          new Icon(Icons.error),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                accomodation.name,
-                style: TextStyle(color: Colors.black),
-                maxLines: 2,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "${accomodation.price} zl",
-                    style: TextStyle(
-                      fontSize: getProportionateScreenWidth(18),
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.kPrimaryColor,
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
+    return SizedBox(
+      width: getProportionateScreenWidth(width),
+      child: GestureDetector(
+        onTap: () => Navigator.pushNamed(
+          context,
+          DetailScreen.routeName,
+          arguments: {
+            "data": accomodation,
+            "type": 0,
+          },
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                height: 80.0,
+                child: Wrap(
+                  children: [CustomNetworkImage(url: accomodation.images[0])],
+                )),
+            const SizedBox(height: 20),
+            Column(
+              children: [
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      accomodation.name,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: getProportionateScreenWidth(14)),
+                      maxLines: 1,
+                    )),
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      accomodation.price.toString() + " zl",
+                      style: TextStyle(
+                          color: AppColors.kPrimaryColor,
+                          fontSize: getProportionateScreenWidth(12)),
+                      maxLines: 2,
+                    ))
+              ],
+            )
+          ],
         ),
       ),
     );

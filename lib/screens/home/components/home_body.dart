@@ -45,9 +45,9 @@ class Body extends StatelessWidget {
                   ),
                   const LanguageDropdown(),
                 ]),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getProportionateScreenHeight(40)),
             MenuItems(),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getProportionateScreenHeight(40)),
             SectionTitle(
               title: AppLocalizations.of(context)!.placeTitle,
               press: () {
@@ -56,15 +56,16 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: getProportionateScreenHeight(20)),
             ItemList(items: kPlaces, limit: 3, type: 0),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getProportionateScreenHeight(40)),
             SectionTitle(
               title: AppLocalizations.of(context)!.eventTitle,
               press: () {
                 Navigator.pushNamed(context, EventListScreen.routeName);
               },
             ),
+            SizedBox(height: getProportionateScreenHeight(20)),
             ItemList(items: kEvents, limit: 3, type: 1),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getProportionateScreenHeight(40)),
             SectionTitle(
               title: AppLocalizations.of(context)!.accomodationTitle,
               press: () {
@@ -73,15 +74,16 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: getProportionateScreenHeight(20)),
             ItemList(items: kAccomodations, limit: 3, type: 2),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getProportionateScreenHeight(40)),
             SectionTitle(
               title: AppLocalizations.of(context)!.tourTitle,
               press: () {
                 Navigator.pushNamed(context, TourListScreen.routeName);
               },
             ),
+            SizedBox(height: getProportionateScreenHeight(20)),
             ItemList(items: kTours, limit: 3, type: 3),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getProportionateScreenHeight(40)),
           ],
         ),
       )),

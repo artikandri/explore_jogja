@@ -1,11 +1,11 @@
 {
-    "name": "sharing_data_between_screens",
-    "short_name": "sharing_data_between_screens",
+    "name": "Explore Jogja",
+    "short_name": "Explore Jogja",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Explore Jogja",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

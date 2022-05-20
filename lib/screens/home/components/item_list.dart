@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jogja/screens/home/components/item_card.dart';
 
-// ignore: must_be_immutable
 class ItemList extends StatelessWidget {
   List items;
   int type = 0;
@@ -12,7 +11,7 @@ class ItemList extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext buildContext) {
+  Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
@@ -20,12 +19,18 @@ class ItemList extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ...List.generate(
-            limit == 0 ? items.length : limit,
-            (index) => ItemCard(
-              type: type,
-              data: items[index],
-            ),
-          ),
+              limit == 0 ? items.length : limit,
+              (index) => Row(
+                    children: [
+                      ItemCard(
+                        type: type,
+                        data: items[index],
+                      ),
+                      index < items.length - 1
+                          ? SizedBox(width: 20)
+                          : Container(),
+                    ],
+                  )),
         ],
       ),
     );

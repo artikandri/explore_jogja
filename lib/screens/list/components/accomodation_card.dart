@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:jogja/components/custom_network_image.dart';
 import 'package:jogja/screens/detail/detail_screen.dart';
 import 'package:jogja/models/accomodation.dart';
 import 'package:jogja/stylings/index.dart';
@@ -37,13 +37,7 @@ class AccomodationCard extends StatelessWidget {
                   ),
                   child: Hero(
                     tag: accomodation.name,
-                    child: CachedNetworkImage(
-                      imageUrl: accomodation.images[0],
-                      placeholder: (context, url) =>
-                          new CircularProgressIndicator(),
-                      errorWidget: (context, url, error) =>
-                          new Icon(Icons.error),
-                    ),
+                    child: CustomNetworkImage(url: accomodation.images[0]),
                   ),
                 ),
               ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:jogja/components/custom_network_image.dart';
 import 'package:jogja/models/event.dart';
 import 'package:jogja/stylings/index.dart';
 import 'package:jogja/screens/detail/detail_screen.dart';
@@ -43,13 +43,7 @@ class EventCard extends StatelessWidget {
                   ),
                   child: Hero(
                     tag: event.name,
-                    child: CachedNetworkImage(
-                      imageUrl: event.images[0],
-                      placeholder: (context, url) =>
-                          new CircularProgressIndicator(),
-                      errorWidget: (context, url, error) =>
-                          new Icon(Icons.error),
-                    ),
+                    child: CustomNetworkImage(url: event.images[0]),
                   ),
                 ),
               ),

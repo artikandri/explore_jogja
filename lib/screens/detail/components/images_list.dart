@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/models/constants.dart';
+import 'package:jogja/constants.dart';
 import 'package:jogja/stylings/index.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:jogja/components/custom_network_image.dart';
 
 class ImagesList extends StatefulWidget {
   const ImagesList({
@@ -28,11 +28,7 @@ class _ImagesListState extends State<ImagesList> {
             aspectRatio: 1,
             child: Hero(
               tag: widget.images.toString(),
-              child: CachedNetworkImage(
-                imageUrl: widget.images[selectedImage],
-                placeholder: (context, url) => new CircularProgressIndicator(),
-                errorWidget: (context, url, error) => new Icon(Icons.error),
-              ),
+              child: CustomNetworkImage(url: widget.images[selectedImage]),
             ),
           ),
         ),
@@ -67,11 +63,7 @@ class _ImagesListState extends State<ImagesList> {
               color: AppColors.kPrimaryColor
                   .withOpacity(selectedImage == index ? 1 : 0)),
         ),
-        child: CachedNetworkImage(
-          imageUrl: widget.images[index],
-          placeholder: (context, url) => new CircularProgressIndicator(),
-          errorWidget: (context, url, error) => new Icon(Icons.error),
-        ),
+        child: CustomNetworkImage(url: widget.images[index]),
       ),
     );
   }

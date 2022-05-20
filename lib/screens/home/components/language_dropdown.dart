@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/models/constants.dart';
-import 'package:jogja/stylings/index.dart';
+import 'package:jogja/constants.dart';
 import 'package:jogja/helpers/shared_prefs_helper.dart';
 import 'package:jogja/providers/language_provider.dart';
 import 'package:provider/provider.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:jogja/components/custom_network_image.dart';
 import 'package:jogja/models/tour.dart';
 import 'package:jogja/stylings/index.dart';
 import 'package:jogja/screens/detail/detail_screen.dart';
@@ -37,21 +37,16 @@ class TourCard extends StatelessWidget {
                   ),
                   child: Hero(
                     tag: tour.name,
-                    child: CachedNetworkImage(
-                      imageUrl: tour.images[0],
-                      placeholder: (context, url) =>
-                          new CircularProgressIndicator(),
-                      errorWidget: (context, url, error) =>
-                          new Icon(Icons.error),
-                    ),
+                    child: CustomNetworkImage(url: tour.images[0]),
                   ),
                 ),
               ),
               const SizedBox(height: 10),
               Text(
                 tour.name,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(color: Colors.black),
-                maxLines: 2,
               ),
             ],
           ),
