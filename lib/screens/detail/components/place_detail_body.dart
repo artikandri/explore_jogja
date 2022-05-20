@@ -38,23 +38,72 @@ class PlaceDetailBody extends StatelessWidget {
                 name: data.name,
                 description: data.description,
               ),
-              Container(
-                  width: 300,
-                  height: 100,
-                  child: CustomYoutubeView(url: data.video)),
-              Container(
-                  width: 300,
-                  height: 100,
-                  child: CustomMap(locations: [data.location])),
-              FlatButton(
-                onPressed: () {
-                  _showContent(context, data);
-                },
-                color: Color.fromARGB(255, 161, 171, 187),
-                child:
-                    const Text('Review', style: TextStyle(color: Colors.white)),
+              SizedBox(
+                height: getProportionateScreenWidth(30),
               ),
-              ReviewList(reviews: data.reviews, type: 0, id: data.id),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(20)),
+                child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: CustomYoutubeView(url: data.video)),
+              ),
+              SizedBox(
+                height: getProportionateScreenWidth(30),
+              ),
+              Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20)),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Row(children: [
+                      Icon(Icons.location_city),
+                      SizedBox(
+                        width: getProportionateScreenWidth(5),
+                      ),
+                      Text(data.location.address,
+                          style: TextStyle(
+                              fontSize: getProportionateScreenWidth(12)))
+                    ]),
+                  )),
+              SizedBox(
+                height: getProportionateScreenWidth(20),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(20)),
+                child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 300,
+                    child: CustomMap(locations: [data.location])),
+              ),
+              SizedBox(
+                height: getProportionateScreenWidth(20),
+              ),
+              Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20)),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColors.kPrimaryColor,
+                      minimumSize: const Size.fromHeight(50), // NEW
+                    ),
+                    onPressed: () {
+                      _showContent(context, data);
+                    },
+                    child: const Text(
+                      'Add review',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  )),
+              SizedBox(
+                height: getProportionateScreenHeight(100),
+              ),
+              Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20)),
+                  child:
+                      ReviewList(reviews: data.reviews, type: 0, id: data.id)),
               TopRoundedContainer(
                 color: Colors.white,
                 child: Padding(

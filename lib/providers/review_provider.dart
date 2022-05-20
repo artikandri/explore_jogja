@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/models/review.dart';
 import 'package:jogja/helpers/shared_prefs_helper.dart';
 
 class ReviewProvider extends ChangeNotifier {
@@ -11,7 +10,7 @@ class ReviewProvider extends ChangeNotifier {
 
   void setReviews(value) {
     reviews = value;
-    // SharedPrefsHelper().setData('reviews', value);
+    SharedPrefsHelper().setData('reviews', value);
     notifyListeners();
   }
 
@@ -25,9 +24,9 @@ class ReviewProvider extends ChangeNotifier {
   }
 
   List getReviews() {
-    // SharedPrefsHelper().getData('reviews').then((value) {
-    //   reviews = value;
-    // });
+    SharedPrefsHelper().getData('reviews').then((value) {
+      reviews = value;
+    });
     notifyListeners();
     return reviews;
   }

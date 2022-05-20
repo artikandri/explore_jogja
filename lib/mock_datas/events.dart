@@ -7,8 +7,8 @@ final List<Event> kEvents = [
     description: 'Visit these awesome places and get rewards!',
     place: kPlaces[0],
     images: [
-      'https://eventyogyakarta.id/wp-content/uploads/2020/03/AP-JOGJA-FASHION-WEEK-2020-Copy.jpg',
-      'https://visitingjogja.jogjaprov.go.id/web/wp-content/uploads/2020/04/WhatsApp-Image-2020-04-18-at-10.01.44.jpeg'
+      'https://pix10.agoda.net/hotelImages/161777/-1/c11de39d15f10e9e43b3ab409c62b48a.png?ca=21&ce=0&s=1024x768',
+      'https://exp.cdn-hotels.com/hotels/1000000/530000/523700/523641/fc0c3d70_z.jpg?impolicy=fcrop&w=500&h=333&q=medium'
     ],
     startTime: "2020-01-02 08:00",
     endTime: "2020-01-02 10:00",
@@ -18,7 +18,8 @@ final List<Event> kEvents = [
     description: 'Look around the carnival in Jogja',
     place: kPlaces[2],
     images: [
-      'https://hanatourjogja.com/cni-content/uploads/modules/posts/20191031113840.jpg'
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/7a/a3/59/grand-dafam-rohan-jogja.jpg?w=900&h=-1&s=1',
+      'https://www.kayak.com/rimg/himg/81/50/1a/hotelsdotcom-652869696-09b9add0_w-032285.jpg?width=1366&height=768&crop=true'
     ],
     startTime: "2020-01-02 08:00",
     endTime: "2020-01-02 10:00",
@@ -28,7 +29,8 @@ final List<Event> kEvents = [
     description: 'Eat to your hearts content',
     place: kPlaces[1],
     images: [
-      'https://jadwalevent.web.id/wp-content/uploads/2020/01/Jogja-Culinary-Festival.jpg'
+      'https://pix10.agoda.net/hotelImages/161777/-1/c11de39d15f10e9e43b3ab409c62b48a.png?ca=21&ce=0&s=1024x768',
+      'https://exp.cdn-hotels.com/hotels/1000000/530000/523700/523641/fc0c3d70_z.jpg?impolicy=fcrop&w=500&h=333&q=medium'
     ],
     startTime: "2020-01-02 08:00",
     endTime: "2020-01-02 10:00",

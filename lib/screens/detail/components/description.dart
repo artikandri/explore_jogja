@@ -46,31 +46,44 @@ class _DescriptionState extends State<Description> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: getProportionateScreenWidth(20)),
-            child: Text(
-              shouldBeTranslated ? _translatedName : widget.name,
-              style: Theme.of(context).textTheme.headline6,
-            )),
-        Padding(
-          padding: EdgeInsets.only(
-            left: getProportionateScreenWidth(20),
-            right: getProportionateScreenWidth(64),
+    return Container(
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(20)),
+              child: Text(
+                shouldBeTranslated ? _translatedName : widget.name,
+                style: TextStyle(fontSize: getProportionateScreenWidth(14)),
+              )),
+          SizedBox(
+            height: getProportionateScreenHeight(10),
           ),
-          child: Text(
-            shouldBeTranslated ? _translatedDescription : widget.description,
-            maxLines: 3,
+          Padding(
+            padding: EdgeInsets.only(
+              left: getProportionateScreenWidth(20),
+            ),
+            child: SizedBox(
+                width: MediaQuery.of(context).size.width -
+                    getProportionateScreenWidth(100),
+                child: Text(
+                  shouldBeTranslated
+                      ? _translatedDescription
+                      : widget.description,
+                  style: TextStyle(fontSize: getProportionateScreenWidth(12)),
+                )),
           ),
-        ),
-        CustomTts(
-            text: shouldBeTranslated
-                ? _translatedDescription
-                : widget.description)
-      ],
-    );
+        ],
+      ),
+      CustomTts(
+          text:
+              shouldBeTranslated ? _translatedDescription : widget.description),
+      SizedBox(
+        width: getProportionateScreenWidth(20),
+      ),
+    ]));
   }
 }

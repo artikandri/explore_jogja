@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jogja/stylings/index.dart';
 import 'package:provider/provider.dart';
 import 'package:jogja/screens/detail/components/review_card.dart';
 import 'package:jogja/providers/review_provider.dart';
@@ -30,10 +31,16 @@ class ReviewList extends StatelessWidget {
 
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
-      child: Row(
+      child: Column(
         children: [
-          Text("Reviews (${filteredReviews.length})"),
-          Text(averageRating.toString()),
+          Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                  "Reviews (${averageRating.toString()} of ${filteredReviews.length})",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: getProportionateScreenWidth(12)))),
+          SizedBox(height: getProportionateScreenHeight(20)),
           ...List.generate(filteredReviews.length,
               (index) => ReviewCard(review: filteredReviews[index])),
         ],

@@ -44,10 +44,10 @@ class _CustomTtsState extends State<CustomTts> {
         onPressed: () {
           tts!.speak(widget.text);
         },
-        child: const Icon(
+        child: Icon(
           Icons.mic,
           color: Colors.black,
-          size: 40,
+          size: getProportionateScreenWidth(30),
         ),
       ),
     );

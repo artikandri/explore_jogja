@@ -57,7 +57,7 @@ class _CustomMapState extends State<CustomMap> {
             ? _center
             : LatLng(widget.locations.first.latitude,
                 widget.locations.first.longitude),
-        zoom: 20.0,
+        zoom: 15.0,
       ),
       markers: Set.from(
         widget.locations.map(

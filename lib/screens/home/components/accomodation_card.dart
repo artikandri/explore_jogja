@@ -17,52 +17,62 @@ class AccomodationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: getProportionateScreenWidth(width),
-      child: GestureDetector(
-        onTap: () => Navigator.pushNamed(
-          context,
-          DetailScreen.routeName,
-          arguments: {
-            "data": accomodation,
-            "type": 0,
-          },
+    return Container(
+        padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+        height: getProportionateScreenWidth(60),
+        decoration: BoxDecoration(
+          color: AppColors.kSecondaryColor.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(10),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Wrap(
           children: [
-            Container(
-                height: 80.0,
-                child: Wrap(
-                  children: [CustomNetworkImage(url: accomodation.images[0])],
-                )),
-            const SizedBox(height: 20),
-            Column(
-              children: [
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      accomodation.name,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: getProportionateScreenWidth(14)),
-                      maxLines: 1,
-                    )),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      accomodation.price.toString() + " zl",
-                      style: TextStyle(
-                          color: AppColors.kPrimaryColor,
-                          fontSize: getProportionateScreenWidth(12)),
-                      maxLines: 2,
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(
+                context,
+                DetailScreen.routeName,
+                arguments: {
+                  "data": accomodation,
+                  "type": 0,
+                },
+              ),
+              child: Row(children: [
+                Container(
+                  width: getProportionateScreenWidth(100),
+                  child: Wrap(
+                    children: [CustomNetworkImage(url: accomodation.images[0])],
+                  ),
+                ),
+                SizedBox(width: getProportionateScreenWidth(10)),
+                Container(
+                    width: getProportionateScreenWidth(100),
+                    child: Wrap(
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Align(
+                                alignment: Alignment.topLeft,
+                                child: Text(accomodation.name,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(12)))),
+                            Align(
+                                alignment: Alignment.topLeft,
+                                child: Text(accomodation.description,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10)))),
+                          ],
+                        )
+                      ],
                     ))
-              ],
-            )
+              ]),
+            ),
           ],
-        ),
-      ),
-    );
+        ));
   }
 }

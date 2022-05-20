@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:jogja/providers/review_provider.dart';
+import 'package:jogja/stylings/index.dart';
 import 'package:jogja/models/review.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -107,9 +107,8 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                   ]),
             ),
           )),
-          SizedBox(
-            height: 80,
-            width: 100,
+          Container(
+            width: 300,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -126,6 +125,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                     }
                   },
                   child: Container(
+                    height: 50,
                     child: const Text(
                       'Add review',
                       style: TextStyle(
@@ -135,11 +135,9 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                     ),
                     alignment: Alignment.center,
                     margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
-                    width: 100,
                     decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
+                        color: AppColors.kPrimaryColor,
+                        borderRadius: BorderRadius.circular(10)),
                   ),
                 )
               ],

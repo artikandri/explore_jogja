@@ -31,17 +31,13 @@ class EventCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AspectRatio(
-              aspectRatio: 1.02,
-              child: Container(
-                height: getProportionateScreenHeight(100),
-                decoration: BoxDecoration(
-                  color: AppColors.kSecondaryColor.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Hero(
-                  tag: event.name,
-                  child: CustomNetworkImage(url: event.images[0]),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 200,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: NetworkImage(event.images[0]),
                 ),
               ),
             ),

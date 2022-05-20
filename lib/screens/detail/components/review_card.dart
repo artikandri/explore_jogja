@@ -20,26 +20,34 @@ class ReviewCard extends StatelessWidget {
       child: SizedBox(
         width: getProportionateScreenWidth(width),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Row(
+              children: [
+                RatingBarIndicator(
+                  rating: review.rating,
+                  itemBuilder: (context, index) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  itemCount: 5,
+                  itemSize: 20.0,
+                  direction: Axis.horizontal,
+                ),
+                Text(
+                  review.rating.toString(),
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: getProportionateScreenWidth(12)),
+                ),
+              ],
+            ),
             const SizedBox(height: 10),
-            RatingBarIndicator(
-              rating: review.rating,
-              itemBuilder: (context, index) => const Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              itemCount: 5,
-              itemSize: 50.0,
-              direction: Axis.horizontal,
-            ),
-            Text(
-              review.rating.toString(),
-              style: TextStyle(color: Colors.black),
-            ),
             Text(
               review.comment,
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: getProportionateScreenWidth(12)),
             ),
           ],
         ),
