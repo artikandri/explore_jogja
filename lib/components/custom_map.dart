@@ -15,7 +15,7 @@ class _CustomMapState extends State<CustomMap> {
   final PolylinePoints _polylinePoints = PolylinePoints();
   final List<LatLng> _routePoints = [];
   final Set<Polyline> _polylines = <Polyline>{};
-  final LatLng _center = const LatLng(40.7460, -73.9864);
+  final LatLng _center = const LatLng(-7, 110);
 
   void _onMapCreated(controller) async {
     for (int i = 0; i < widget.locations.length - 1; i++) {

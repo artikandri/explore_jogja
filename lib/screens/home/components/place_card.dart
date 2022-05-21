@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jogja/components/overlay_card.dart';
 import 'package:jogja/models/place.dart';
-import 'package:jogja/stylings/index.dart';
 import 'package:jogja/screens/detail/detail_screen.dart';
 
 class PlaceCard extends StatelessWidget {

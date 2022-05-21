@@ -25,10 +25,17 @@ class TourDetailBody extends StatelessWidget {
                 name: data.name,
                 description: data.description,
               ),
-              Container(
-                  width: 300,
-                  height: 100,
-                  child: CustomMap(locations: _locations)),
+              SizedBox(
+                height: getProportionateScreenHeight(50),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(20)),
+                child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 300,
+                    child: CustomMap(locations: _locations)),
+              ),
               TopRoundedContainer(
                 color: Colors.white,
                 child: Padding(

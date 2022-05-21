@@ -100,10 +100,10 @@ List<Place> kPlaces = [
     description:
         'Tugu Yogyakarta is an important historical landmark in the city of Yogyakarta, Indonesia. Tugu means monument, which is usually built as a symbol of an area conceptualising characteristics of that region. Because of its historical background, Tugu Yogyakarta has become a historical icon of the city. ',
     location: Location(
-      latitude: -7.782984,
-      longitude: 110.367035,
-      address: "Jalan Tugu",
-      label: 'Tugu',
+      latitude: -7.100821020718915,
+      longitude: 110.3164988721451,
+      address: "Jalan Titik Nol",
+      label: 'Fort Vredeburg Museum',
     ),
     images: [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Yogyakarta_Indonesia_Tugu-Yogyakarta-01.jpg/1200px-Yogyakarta_Indonesia_Tugu-Yogyakarta-01.jpg',

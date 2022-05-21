@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/models/tour.dart';
 import 'package:jogja/stylings/index.dart';
 
 class OverlayCard extends StatelessWidget {
@@ -7,6 +6,7 @@ class OverlayCard extends StatelessWidget {
     Key? key,
     this.width = 180,
     this.aspectRatio = 1.02,
+    this.isFullScreen = false,
     required this.imageUrl,
     required this.name,
     required this.description,
@@ -16,6 +16,7 @@ class OverlayCard extends StatelessWidget {
   final double width, aspectRatio;
   final String name, description, imageUrl;
   final Function onPress;
+  final bool isFullScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,9 @@ class OverlayCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () => {onPress()},
         child: SizedBox(
-          width: getProportionateScreenWidth(200),
+          width: isFullScreen
+              ? MediaQuery.of(context).size.width
+              : getProportionateScreenWidth(200),
           height: getProportionateScreenWidth(140),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
