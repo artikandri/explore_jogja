@@ -1,36 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/components/custom_network_image.dart';
-import 'package:jogja/models/place.dart';
+import 'package:jogja/models/tour.dart';
 import 'package:jogja/stylings/index.dart';
-import 'package:jogja/screens/detail/detail_screen.dart';
 
-class PlaceCard extends StatelessWidget {
-  const PlaceCard({
+class OverlayCard extends StatelessWidget {
+  const OverlayCard({
     Key? key,
     this.width = 180,
     this.aspectRatio = 1.02,
-    required this.place,
+    required this.imageUrl,
+    required this.name,
+    required this.description,
+    required this.onPress,
   }) : super(key: key);
 
   final double width, aspectRatio;
-  final Place place;
+  final String name, description, imageUrl;
+  final Function onPress;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: GestureDetector(
-        onTap: () => {
-          Navigator.pushNamed(context, DetailScreen.routeName,
-              arguments: {"data": place, "type": 0})
-        },
+        onTap: () => {onPress()},
         child: SizedBox(
-          width: MediaQuery.of(context).size.width,
+          width: getProportionateScreenWidth(200),
           height: getProportionateScreenWidth(140),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Stack(
               children: [
-                Image.network(place.images[0],
+                Image.network(imageUrl,
                     fit: BoxFit.cover,
                     width: MediaQuery.of(context).size.width),
                 Container(
@@ -51,7 +50,7 @@ class PlaceCard extends StatelessWidget {
                     vertical: getProportionateScreenWidth(20),
                   ),
                   child: Text(
-                    place.name,
+                    name,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -67,7 +66,9 @@ class PlaceCard extends StatelessWidget {
                     vertical: getProportionateScreenWidth(50),
                   ),
                   child: Text(
-                    place.description,
+                    description,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

@@ -52,6 +52,7 @@ class _BodyState extends State<Body> {
                 ),
               ),
             ),
+            SizedBox(height: getProportionateScreenHeight(20)),
             Container(
                 margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 15.0),
                 child: CustomSearchBox(
@@ -70,7 +71,7 @@ class _BodyState extends State<Body> {
                         }
                       });
                     })),
-            SizedBox(height: getProportionateScreenHeight(10)),
+            SizedBox(height: getProportionateScreenHeight(40)),
             Container(
                 margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 15.0),
                 child: ItemList(items: items, limit: 0, type: widget.type))
