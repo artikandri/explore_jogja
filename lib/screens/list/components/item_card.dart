@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jogja/screens/home/components/event_card.dart';
-import 'package:jogja/screens/home/components/place_card.dart';
-import 'package:jogja/screens/home/components/accomodation_card.dart';
-import 'package:jogja/screens/home/components/tour_card.dart';
+import 'package:jogja/screens/list/components/event_card.dart';
+import 'package:jogja/screens/list/components/place_card.dart';
+import 'package:jogja/screens/list/components/accomodation_card.dart';
+import 'package:jogja/screens/list/components/tour_card.dart';
 
 class ItemCard extends StatelessWidget {
   final int type;

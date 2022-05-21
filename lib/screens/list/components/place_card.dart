@@ -17,44 +17,66 @@ class PlaceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
-      child: SizedBox(
-        width: getProportionateScreenWidth(width),
-        child: GestureDetector(
-          onTap: () => Navigator.pushNamed(
-            context,
-            DetailScreen.routeName,
-            arguments: {
-              "data": place,
-              "type": 0,
-            },
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AspectRatio(
-                aspectRatio: 1.02,
-                child: Container(
-                  padding: EdgeInsets.all(getProportionateScreenWidth(20)),
+    return Container(
+      child: GestureDetector(
+        onTap: () => {
+          Navigator.pushNamed(context, DetailScreen.routeName,
+              arguments: {"data": place, "type": 0})
+        },
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: getProportionateScreenWidth(140),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Stack(
+              children: [
+                Image.network(place.images[0],
+                    fit: BoxFit.cover,
+                    width: MediaQuery.of(context).size.width),
+                Container(
                   decoration: BoxDecoration(
-                    color: AppColors.kSecondaryColor.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Hero(
-                    tag: place.name,
-                    child: CustomNetworkImage(url: place.images[0]),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0xFF343434).withOpacity(0.4),
+                        Color(0xFF343434).withOpacity(0.15),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                place.name,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.black),
-                maxLines: 1,
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(15.0),
+                    vertical: getProportionateScreenWidth(20),
+                  ),
+                  child: Text.rich(
+                    TextSpan(
+                      style: TextStyle(color: Colors.white),
+                      children: [
+                        TextSpan(
+                          text: place.name,
+                          style: TextStyle(
+                            fontSize: getProportionateScreenWidth(18),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(15.0),
+                    vertical: getProportionateScreenWidth(50),
+                  ),
+                  child: Text(
+                    place.description,
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -18,7 +18,22 @@ List<Place> kPlaces = [
       'https://upload.wikimedia.org/wikipedia/commons/3/3d/Jogjakarta%2C_January_2007.jpg',
       'https://thumbs.dreamstime.com/z/podwy%C5%BCszona-platforma-sumur-gumuling-taman-sari-wody-meczetowy-kasztel-55213406.jpg'
     ],
-    reviews: [],
+    reviews: [
+      const PlaceReview(
+        objectName: "Malioboro",
+        rating: 2,
+        type: 0,
+        comment: "Nice",
+        id: 1,
+      ),
+      const PlaceReview(
+        objectName: "Malioboro",
+        rating: 3.5,
+        type: 0,
+        comment: "Beautiful place",
+        id: 1,
+      )
+    ],
     video: 'https://www.youtube.com/watch?v=vC1F2BJwsRQ',
   ),
   Place(
@@ -42,7 +57,7 @@ List<Place> kPlaces = [
           rating: 2,
           type: 0,
           comment: "Nice",
-          id: 1,
+          id: 2,
         )
       ]),
   Place(

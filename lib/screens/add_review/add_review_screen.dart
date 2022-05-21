@@ -108,10 +108,31 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
             ),
           )),
           Container(
-            width: 300,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 100,
+                    child: const Text(
+                      'Close',
+                      style: TextStyle(
+                          color: AppColors.kPrimaryColor,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16),
+                    ),
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                    decoration: BoxDecoration(
+                        color: AppColors.kWhite,
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                ),
                 InkWell(
                   onTap: () {
                     _formKey.currentState!.save();
@@ -126,6 +147,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                   },
                   child: Container(
                     height: 50,
+                    width: 100,
                     child: const Text(
                       'Add review',
                       style: TextStyle(

@@ -29,22 +29,26 @@ class ReviewList extends StatelessWidget {
         Provider.of<ReviewProvider>(buildContext, listen: true)
             .getRatingAverage(filteredReviews);
 
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Column(
-        children: [
-          Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                  "Reviews (${averageRating.toString()} of ${filteredReviews.length})",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: getProportionateScreenWidth(12)))),
-          SizedBox(height: getProportionateScreenHeight(20)),
-          ...List.generate(filteredReviews.length,
-              (index) => ReviewCard(review: filteredReviews[index])),
-        ],
-      ),
+    return Column(
+      children: [
+        Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+                "Reviews (${averageRating.toStringAsFixed(2)} of ${filteredReviews.length})",
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: getProportionateScreenWidth(12)))),
+        SizedBox(height: getProportionateScreenHeight(20)),
+        SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              ...List.generate(filteredReviews.length,
+                  (index) => ReviewCard(review: filteredReviews[index])),
+            ],
+          ),
+        )
+      ],
     );
   }
 }

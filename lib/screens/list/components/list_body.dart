@@ -52,24 +52,28 @@ class _BodyState extends State<Body> {
                 ),
               ),
             ),
-            CustomSearchBox(
-                readOnly: false,
-                autoFocus: true,
-                onChanged: (text) {
-                  setState(() {
-                    if (text.isNotEmpty) {
-                      items = widget.items
-                          .where((element) => element.name
-                              .toLowerCase()
-                              .contains(text.toLowerCase()))
-                          .toList();
-                    } else {
-                      items = widget.items;
-                    }
-                  });
-                }),
+            Container(
+                margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 15.0),
+                child: CustomSearchBox(
+                    readOnly: false,
+                    autoFocus: true,
+                    onChanged: (text) {
+                      setState(() {
+                        if (text.isNotEmpty) {
+                          items = widget.items
+                              .where((element) => element.name
+                                  .toLowerCase()
+                                  .contains(text.toLowerCase()))
+                              .toList();
+                        } else {
+                          items = widget.items;
+                        }
+                      });
+                    })),
             SizedBox(height: getProportionateScreenHeight(10)),
-            ItemList(items: items, limit: 0, type: widget.type)
+            Container(
+                margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 15.0),
+                child: ItemList(items: items, limit: 0, type: widget.type))
           ],
         ),
       ),

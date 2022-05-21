@@ -15,43 +15,53 @@ class ReviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
-      child: SizedBox(
-        width: getProportionateScreenWidth(width),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
+    return SizedBox(
+      width: double.infinity,
+      child: Card(
+          elevation: 2,
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                RatingBarIndicator(
-                  rating: review.rating,
-                  itemBuilder: (context, index) => const Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
-                  itemCount: 5,
-                  itemSize: 20.0,
-                  direction: Axis.horizontal,
+                Row(
+                  children: [
+                    RatingBarIndicator(
+                      rating: review.rating,
+                      itemBuilder: (context, index) => const Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      itemCount: 5,
+                      itemSize: 20.0,
+                      direction: Axis.horizontal,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                      child: Text(
+                        review.rating.toString(),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: getProportionateScreenWidth(10)),
+                      ),
+                    )
+                  ],
                 ),
-                Text(
-                  review.rating.toString(),
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: getProportionateScreenWidth(12)),
+                SizedBox(
+                  height: getProportionateScreenHeight(20),
                 ),
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      review.comment,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: getProportionateScreenWidth(10)),
+                    )),
               ],
             ),
-            const SizedBox(height: 10),
-            Text(
-              review.comment,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: getProportionateScreenWidth(12)),
-            ),
-          ],
-        ),
-      ),
+          )),
     );
   }
 }
