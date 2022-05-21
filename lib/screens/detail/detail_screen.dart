@@ -11,7 +11,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFF5F6F9),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+        preferredSize: Size.fromHeight(AppBar().preferredSize.height + 30),
         child: CustomAppBar(),
       ),
       body: DetailBody(type: arguments["type"], data: arguments["data"]),

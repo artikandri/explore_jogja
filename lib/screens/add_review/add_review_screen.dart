@@ -127,7 +127,6 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                           fontSize: 16),
                     ),
                     alignment: Alignment.center,
-                    margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
                     decoration: BoxDecoration(
                         color: AppColors.kWhite,
                         borderRadius: BorderRadius.circular(10)),
@@ -156,7 +155,6 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                           fontSize: 16),
                     ),
                     alignment: Alignment.center,
-                    margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
                     decoration: BoxDecoration(
                         color: AppColors.kPrimaryColor,
                         borderRadius: BorderRadius.circular(10)),
