@@ -59,6 +59,8 @@ class MenuItems extends StatelessWidget {
                           SizedBox(height: getProportionateScreenWidth(5)),
                           Text(
                             menuItems[index].label,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 fontSize: getProportionateScreenWidth(8)),
                           ),

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +7,7 @@ import 'package:jogja/screens/home/home_screen.dart';
 import 'package:jogja/providers/language_provider.dart';
 import 'package:jogja/providers/review_provider.dart';
 import 'package:jogja/routes.dart';
+import 'package:jogja/stylings/index.dart';
 
 void main() {
   runApp(
@@ -46,7 +45,13 @@ class MyApp extends StatelessWidget {
             const Locale('en', ''),
             const Locale('id', ''),
           ],
-          theme: ThemeData.light(),
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+            textTheme: Theme.of(context).textTheme.apply(
+                bodyColor: AppColors.kBlack,
+                displayColor: AppColors.kBlack,
+                fontFamily: 'Poppins'),
+          ),
           home: HomeScreen(),
           initialRoute: HomeScreen.routeName,
           routes: routes,

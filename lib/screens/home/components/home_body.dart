@@ -29,11 +29,14 @@ class Body extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Text(
-                        AppLocalizations.of(context)!.greeting,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          color: Color.fromARGB(255, 12, 0, 0),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          AppLocalizations.of(context)!.greeting,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Color.fromARGB(255, 12, 0, 0),
+                          ),
                         ),
                       ),
                       SizedBox(
