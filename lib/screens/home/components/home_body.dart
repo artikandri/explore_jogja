@@ -28,6 +28,7 @@ class Body extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Align(
                         alignment: Alignment.topLeft,
@@ -39,11 +40,15 @@ class Body extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
-                          height: getProportionateScreenHeight(50),
-                          child: Image.asset(
-                            "images/logo.png",
-                          )),
+                      SizedBox(height: 10),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: SizedBox(
+                            height: getProportionateScreenHeight(50),
+                            child: Image.asset(
+                              "images/logo.png",
+                            )),
+                      )
                     ],
                   ),
                   const LanguageDropdown(),

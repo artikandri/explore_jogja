@@ -14,9 +14,10 @@ class CustomAppBar extends StatelessWidget {
       child: Padding(
         padding:
             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-        child: Row(
+        child: Column(
           children: [
-            CustomBackButton(),
+            SizedBox(height: getProportionateScreenHeight(20)),
+            Align(alignment: Alignment.topLeft, child: CustomBackButton())
           ],
         ),
       ),
