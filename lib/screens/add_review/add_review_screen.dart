@@ -4,7 +4,6 @@ import 'package:jogja/providers/review_provider.dart';
 import 'package:jogja/stylings/index.dart';
 import 'package:jogja/models/review.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class AddReviewScreen extends StatefulWidget {
@@ -124,7 +123,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                       style: TextStyle(
                           color: AppColors.kPrimaryColor,
                           fontWeight: FontWeight.w700,
-                          fontSize: 16),
+                          fontSize: 12),
                     ),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
@@ -152,7 +151,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
-                          fontSize: 16),
+                          fontSize: 12),
                     ),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(

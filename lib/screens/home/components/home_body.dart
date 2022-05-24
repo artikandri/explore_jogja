@@ -46,7 +46,7 @@ class Body extends StatelessWidget {
                         child: SizedBox(
                             height: getProportionateScreenHeight(50),
                             child: Image.asset(
-                              "images/logo.png",
+                              "assets/images/logo.png",
                             )),
                       )
                     ],

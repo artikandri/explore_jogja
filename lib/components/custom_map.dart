@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -12,12 +14,19 @@ class CustomMap extends StatefulWidget {
 }
 
 class _CustomMapState extends State<CustomMap> {
+  Completer<GoogleMapController> mapController = Completer();
+
   final PolylinePoints _polylinePoints = PolylinePoints();
   final List<LatLng> _routePoints = [];
   final Set<Polyline> _polylines = <Polyline>{};
-  final LatLng _center = const LatLng(-7, 110);
+  LatLng _center = LatLng(-7, 110);
 
   void _onMapCreated(controller) async {
+    if (widget.locations.length > 0) {
+      _center =
+          LatLng(widget.locations[0].latitude, widget.locations[0].longitude);
+    }
+
     for (int i = 0; i < widget.locations.length - 1; i++) {
       PolylineResult result = await _polylinePoints.getRouteBetweenCoordinates(
         "AIzaSyBxaYoHu3Qlg74RPIhJ0T-UUAic6vUkdGU",
@@ -30,12 +39,14 @@ class _CustomMapState extends State<CustomMap> {
           widget.locations[i + 1].longitude,
         ),
       );
+
       if (result.status == 'OK') {
         for (var point in result.points) {
           _routePoints.add(LatLng(point.latitude, point.longitude));
         }
       }
     }
+
     setState(() {
       _polylines.add(
         Polyline(
@@ -51,7 +62,10 @@ class _CustomMapState extends State<CustomMap> {
   @override
   Widget build(BuildContext context) {
     return GoogleMap(
-      onMapCreated: _onMapCreated,
+      onMapCreated: (GoogleMapController controller) {
+        mapController.complete(controller);
+        _onMapCreated(controller);
+      },
       initialCameraPosition: CameraPosition(
         target: widget.locations.length != 1
             ? _center

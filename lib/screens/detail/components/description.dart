@@ -7,8 +7,13 @@ import 'package:translator/translator.dart';
 class Description extends StatefulWidget {
   final String name;
   final String description;
+  bool? isMicHidden;
 
-  const Description({Key? key, required this.name, required this.description})
+  Description(
+      {Key? key,
+      required this.name,
+      required this.description,
+      this.isMicHidden})
       : super(key: key);
 
   _DescriptionState createState() => _DescriptionState();
@@ -78,9 +83,12 @@ class _DescriptionState extends State<Description> {
           ),
         ],
       ),
-      CustomTts(
-          text:
-              shouldBeTranslated ? _translatedDescription : widget.description),
+      widget.isMicHidden ?? false
+          ? Container()
+          : CustomTts(
+              text: shouldBeTranslated
+                  ? _translatedDescription
+                  : widget.description),
       SizedBox(
         width: getProportionateScreenWidth(20),
       ),
