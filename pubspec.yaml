@@ -59,7 +59,7 @@ flutter:
         - asset: assets/fonts/Poppins-Light.ttf
           weight: 200
         - asset: assets/fonts/Poppins-Regular.ttf
-        - asset: assets/fonts/Poppins-Semibold.ttf
+        - asset: assets/fonts/Poppins-SemiBold.ttf
           weight: 400
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 500
